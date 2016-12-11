@@ -6,14 +6,36 @@ using namespace std;
 int main ()
 {
   int a;
-  string b;
+  bool t;
   cin >> a;
+  a+=1;
+  string s="Simon says";
   for (int i=0; i<a; i++){
-    cin >> b;
+    string b;
+    getline(cin, b);
+    if(b.length()>=10){
+      for(int j=0; j<10; j++){
+        if(s[j]==b[j]){
+          t=true;
+          // cout << "Y" << endl;
+        }
+        else{
+          // cout << "N" << endl;
+          t=false;
+          break;
+        }
+      }
+    }
+    else{
+      t=false;
+    }
+    if(t==true){
+      for(int k=10; k<b.length(); k++){
+        cout << b[k];
+      }
+      cout << endl;
+    }
   }
 
-  // different member versions of find in the same order as above:
-  int c = b.find("Simon says");
-  cout << "first 'Simon says' found at: " << c << '\n';
   return 0;
 }
